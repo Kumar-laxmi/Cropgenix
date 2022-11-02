@@ -1,1 +1,1 @@
-# Cropgenix
+<img src="./app/static/img/banner.png" />
