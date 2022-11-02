@@ -20,5 +20,6 @@ from app.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', index)
+    path('', index),
+    path('crop-recommendation/', CropRecommendation)
 ]
