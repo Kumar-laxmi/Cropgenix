@@ -166,7 +166,7 @@
                   <div class="mb-3">
                       <label for="validationState">State: </label>
                       <div class="input-group">
-                          <input type="number" class="form-control" id="validationState" placeholder="State" aria-describedby="inputGroupPrepend" min="0" required>
+                          <input type="text" class="form-control" id="validationState" placeholder="State" aria-describedby="inputGroupPrepend" required>
                           <div class="invalid-feedback">Please select the State</div>
                       </div>
                   </div>
@@ -177,14 +177,29 @@
                   <div class="mb-3">
                       <label for="validationCity">City: </label>
                       <div class="input-group">
-                          <input type="number" class="form-control" id="validationCity" placeholder="City" aria-describedby="inputGroupPrepend" min="0" required>
+                          <input type="text" class="form-control" id="validationCity" placeholder="City" aria-describedby="inputGroupPrepend" required>
                           <div class="invalid-feedback">Please select the City</div>
                       </div>
                   </div>
               </div>
               
               <!-- Submit Button -->
-              <button class="btn btn-primary" type="submit">Submit form</button>
+              <button class="btn btn-primary" type="submit" onclick="LoadURL()">Submit form</button>
+              <script type="text/javascript">
+                function LoadURL() {
+                    var nitrogen = document.getElementById("validationNitrogen").value;
+                    var phosphorus = document.getElementById("validationPhosphorus").value;
+                    var potassium = document.getElementById("validationPotassium").value;
+                    var pH = document.getElementById("validationPH").value;
+                    var rainfall = document.getElementById("validationRainfall").value;
+                    var state = document.getElementById("validationState").value;
+                    var city = document.getElementById("validationCity").value;
+                    var server = window.location.origin;
+                    var path = "/crop-prediction/" + nitrogen + "/" + phosphorus + "/" + potassium + "/" + pH + "/" + rainfall + "/" + state + "/" + city;
+                    var url = server + path;
+                    window.location.href = url;
+                }
+            </script>
           </form>
           
           <script>
