@@ -48,10 +48,13 @@ def CropRecommendation(request):
 def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainfall, state, city):
     if city != None:
         temperature, humidity = weather_fetch(city)
+
         with open('app/Machine-learning/Models/Crop-Recommendation/NBClassifier.pkl', 'rb') as files:
             model = pickle.load(files)
         
-        result = model.predict(np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]]))
+        data = np.array([[int(nitrogen), int(phosphorus), int(potassium), temperature, humidity, int(ph), float(rainfall)]])
+        
+        result = model.predict(data)
     else:
         pass
     
