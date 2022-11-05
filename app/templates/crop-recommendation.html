@@ -29,6 +29,11 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+  <!-- Static JS File-->
+  <script type="text/javascript" src="{% static 'js/cities.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/submit.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/LoadURL.js' %}"></script>
 </head>
 
 <body>
@@ -165,10 +170,15 @@
               <div class="form-row">
                   <div class="mb-3">
                       <label for="validationState">State: </label>
-                      <div class="input-group">
-                          <input type="text" class="form-control" id="validationState" placeholder="State" aria-describedby="inputGroupPrepend" required>
-                          <div class="invalid-feedback">Please select the State</div>
-                      </div>
+                      <!--- India states -->
+                      <select
+                            onchange="print_city('state', this.selectedIndex);"
+                            id="sts"
+                            name="stt"
+                            class="form-control"
+                            style="font-weight: bold; color: black;"
+                            required
+                      ></select>
                   </div>
               </div>
 
@@ -176,52 +186,29 @@
               <div class="form-row">
                   <div class="mb-3">
                       <label for="validationCity">City: </label>
-                      <div class="input-group">
-                          <input type="text" class="form-control" id="validationCity" placeholder="City" aria-describedby="inputGroupPrepend" required>
-                          <div class="invalid-feedback">Please select the City</div>
-                      </div>
+                      <!-- Corresponding cities -->
+                      <select
+                            id="state"
+                            class="form-control"
+                            name="city"
+                            style="font-weight: bold; color: black;"
+                            required
+                      ></select>
                   </div>
               </div>
+
+              <script type="text/javascript">
+                  print_state("sts");
+              </script>
               
               <!-- Submit Button -->
               <button class="btn btn-primary" type="submit" onclick="LoadURL()">Submit form</button>
-              <script type="text/javascript">
-                function LoadURL() {
-                    var nitrogen = document.getElementById("validationNitrogen").value;
-                    var phosphorus = document.getElementById("validationPhosphorus").value;
-                    var potassium = document.getElementById("validationPotassium").value;
-                    var pH = document.getElementById("validationPH").value;
-                    var rainfall = document.getElementById("validationRainfall").value;
-                    var state = document.getElementById("validationState").value;
-                    var city = document.getElementById("validationCity").value;
-                    var server = window.location.origin;
-                    var path = "/crop-prediction/" + nitrogen + "/" + phosphorus + "/" + potassium + "/" + pH + "/" + rainfall + "/" + state + "/" + city;
-                    var url = server + path;
-                    window.location.href = url;
-                }
-            </script>
+              
+              <!-- LoadURL.js -->
+
           </form>
-          
-          <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-            (function() {
-              'use strict';
-              window.addEventListener('load', function() {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                  form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                      event.preventDefault();
-                      event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                  }, false);
-                });
-              }, false);
-            })();
-          </script>
+
+          <!-- submit.js -->
 
       </div>
     </section>
