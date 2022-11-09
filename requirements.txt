@@ -23,7 +23,6 @@ django-on-heroku==1.1.2
 entrypoints==0.3
 executing==0.8.3
 fastjsonschema==2.15.3
-firebase==3.0.1
 fonttools==4.28.2
 gcloud==0.17.0
 googleapis-common-protos==1.56.4
@@ -49,7 +48,6 @@ matplotlib==3.5.3
 matplotlib-inline==0.1.6
 mistune==0.8.4
 multitasking==0.0.11
-Naked==0.1.31
 nbclient==0.6.0
 nbconvert==6.5.0
 nbformat==5.3.0
@@ -60,7 +58,6 @@ oauth2client==3.0.0
 opencv-python==4.5.4.60
 opencv-python-headless==4.5.4.60
 packaging==21.3
-panda==0.3.1
 pandas==1.4.3
 pandocfilters==1.5.0
 parso==0.8.2
@@ -85,7 +82,6 @@ pycrypto==2.6.1
 pycryptodome==3.4.3
 Pygments==2.10.0
 pyparsing==3.0.6
-Pyrebase==3.0.27
 pyrsistent==0.18.1
 python-dateutil==2.8.2
 python-jwt==2.0.1
