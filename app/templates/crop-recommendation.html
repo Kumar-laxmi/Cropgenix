@@ -198,7 +198,7 @@
               </div>
 
               <script type="text/javascript">
-                  print_state("sts");
+                print_state("sts");
               </script>
               
               <!-- Submit Button -->
@@ -212,9 +212,9 @@
                       var pH = document.getElementById("validationPH").value;
                       var rainfall = document.getElementById("validationRainfall").value;
 
-                      var state = document.querySelector('#sts').value;
-                      var city = document.querySelector('#state').value;
-                      
+                      var state = document.querySelector('#sts').options[document.querySelector('#sts').selectedIndex].value;
+                      var city = document.querySelector('#state').options[document.querySelector('#state').selectedIndex].value;
+
                       var server = window.location.origin;
                       var path = "/crop-prediction/" + nitrogen + "/" + phosphorus + "/" + potassium + "/" + pH + "/" + rainfall + "/" + state + "/" + city;
                       var url = server + path;
