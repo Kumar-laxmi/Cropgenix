@@ -46,6 +46,8 @@ def CropRecommendation(request):
     return render(request, 'crop-recommendation.html', {})
 
 def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainfall, state, city):
+    print(request.POST)
+
     if city != None:
         temperature, humidity = weather_fetch(city)
 

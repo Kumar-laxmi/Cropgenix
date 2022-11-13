@@ -110,7 +110,7 @@
 
     <section class="sample-page">
       <div class="container" data-aos="fade-up">
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" method="post" novalidate> {% csrf_token %}
               <!-- Nitrogen Input -->
               <div class="form-row">
                   <div class="mb-3">
