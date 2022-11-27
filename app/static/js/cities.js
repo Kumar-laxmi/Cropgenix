@@ -54,7 +54,7 @@ function print_city(city_id, city_index){
 	option_str.length=0;	// Fixed by Julian Woods
 	option_str.options[0] = new Option('Select City','');
 	option_str.selectedIndex = 0;
-	var city_arr = s_a[city_index].split("|");
+	var city_arr = s_a[city_index].split("| ");
 	for (var i=0; i<city_arr.length; i++) {
 		option_str.options[option_str.length] = new Option(city_arr[i],city_arr[i]);
 	}

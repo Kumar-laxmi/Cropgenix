@@ -110,7 +110,7 @@
 
     <section class="sample-page">
       <div class="container" data-aos="fade-up">
-          <form class="needs-validation" method="post" novalidate> {% csrf_token %}
+          <form class="needs-validation" method="get" novalidate>
               <!-- Nitrogen Input -->
               <div class="form-row">
                   <div class="mb-3">
@@ -202,7 +202,7 @@
               </script>
               
               <!-- Submit Button -->
-              <button class="btn btn-primary" type="submit" onclick="LoadURL()">Submit form</button>
+              <button class="btn btn-primary" type="reset" onclick="LoadURL()">Submit form</button>
               
               <script>
                   function LoadURL() {
@@ -213,7 +213,9 @@
                       var rainfall = document.getElementById("validationRainfall").value;
 
                       var state = document.querySelector('#sts').options[document.querySelector('#sts').selectedIndex].value;
-                      var city = document.querySelector('#state').options[document.querySelector('#state').selectedIndex].value;
+                      var city = document.querySelector('#state').options[document.querySelector('#state').selectedIndex].value.trim();
+                      console.log(state);
+                      console.log(city);
 
                       var server = window.location.origin;
                       var path = "/crop-prediction/" + nitrogen + "/" + phosphorus + "/" + potassium + "/" + pH + "/" + rainfall + "/" + state + "/" + city;
