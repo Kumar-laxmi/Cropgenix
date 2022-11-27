@@ -45,8 +45,15 @@ def index(request):
 def CropRecommendation(request):
     return render(request, 'crop-recommendation.html', {})
 
-def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainfall, state, city):
+def CropRecommendationResult(request):
     print(request.POST)
+    nitrogen = request.POST.get('validationNitrogen')
+    phosphorus = request.POST.get('validationPhosphorus')
+    potassium = request.POST.get('validationPotassium')
+    ph = request.POST.get('validationPH')
+    rainfall = request.POST.get('validationRainfall')
+    state = request.POST.get('sts')
+    city = request.POST.get('state')
 
     if city != None:
         temperature, humidity = weather_fetch(city)
