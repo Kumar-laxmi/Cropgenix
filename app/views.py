@@ -47,27 +47,27 @@ def CropRecommendation(request):
 
 def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainfall, state, city):
     crop_image = {
-        'apple': 'app/static/img/apple.jpeg',
-        'banana': 'app/static/img/banana.webp',
-        'blackgram': 'app/static/img/blackgram.jpeg',
-        'chickpea': 'app/static/img/chickpea.jpeg',
-        'coffee': 'app/static/img/coffee.jpeg',
-        'cotton': 'app/static/img/cotton.webp',
-        'grapes': 'app/static/img/grapes.jpeg',
-        'jute': 'app/static/img/jute.jpeg',
-        'kidneybeans': 'app/static/img/kidneybeans.jpeg',
-        'lentil': 'app/static/img/lentil.jpeg',
-        'maize': 'app/static/img/maize.webp',
-        'mango': 'app/static/img/mango.jpeg',
-        'mothbeans': 'app/static/img/mothbeans.jpeg',
-        'mungbean': 'app/static/img/mungbean.jpeg',
-        'muskmelon': 'app/static/img/muskmelon.jpeg',
-        'orange': 'app/static/img/orange.jpeg',
-        'papaya': 'app/static/img/papaya.jpeg',
-        'pigeonpeas': 'app/static/img/pigeonpeas.jpeg',
-        'pomegranate': 'app/static/img/pomegranate.webp',
-        'rice': 'app/static/img/rice.jpeg',
-        'watermelon': 'app/static/img/watermelon.jpeg'
+        'apple': './app/static/img/apple.jpeg',
+        'banana': './app/static/img/banana.webp',
+        'blackgram': './app/static/img/blackgram.jpeg',
+        'chickpea': './app/static/img/chickpea.jpeg',
+        'coffee': './app/static/img/coffee.jpeg',
+        'cotton': './app/static/img/cotton.webp',
+        'grapes': './app/static/img/grapes.jpeg',
+        'jute': './app/static/img/jute.jpeg',
+        'kidneybeans': './app/static/img/kidneybeans.jpeg',
+        'lentil': './app/static/img/lentil.jpeg',
+        'maize': './app/static/img/maize.webp',
+        'mango': './app/static/img/mango.jpeg',
+        'mothbeans': './app/static/img/mothbeans.jpeg',
+        'mungbean': './app/static/img/mungbean.jpeg',
+        'muskmelon': './app/static/img/muskmelon.jpeg',
+        'orange': './app/static/img/orange.jpeg',
+        'papaya': './app/static/img/papaya.jpeg',
+        'pigeonpeas': './app/static/img/pigeonpeas.jpeg',
+        'pomegranate': './app/static/img/pomegranate.webp',
+        'rice': './app/static/img/rice.jpeg',
+        'watermelon': './app/static/img/watermelon.jpeg'
     }
     if city != None:
         city = city.lstrip()
@@ -83,6 +83,7 @@ def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainf
         
         result = model.predict(data)
         result_image = crop_image[result[0]]
+        print(result_image)
     else:
         pass
     
