@@ -22,5 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', index),
     path('crop-recommendation/', CropRecommendation),
-    path('crop-prediction/<str:nitrogen>/<str:phosphorus>/<str:potassium>/<str:ph>/<str:rainfall>/<str:state>/<str:city>/', CropRecommendationResult)
+    path('crop-prediction/<str:nitrogen>/<str:phosphorus>/<str:potassium>/<str:ph>/<str:rainfall>/<str:state>/<str:city>/', CropRecommendationResult),
+    path('fertilizer-recommendation/', FertilizerRecommendation)
 ]

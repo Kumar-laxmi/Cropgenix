@@ -91,3 +91,6 @@ def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainf
             'result': result[0],
             'result_image': result_image
         })
+
+def FertilizerRecommendation(request):
+    return render(request, 'fertilizer-recommendation.html', {})
