@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/kumarlaxmikant/Desktop/Visual Studio/Cropgenix/virtualenv/bin/python" "$0" "$@"
+'''exec' "/Users/kumarlaxmikant/Desktop/Visual Studio/Cropgenix/virtualenv/bin/python3.11" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
