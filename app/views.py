@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext
+from django.shortcuts import render, redirect
+
+from .forms import *
 
 import numpy as np
 import pandas as pd
@@ -125,3 +128,17 @@ def FertilizerRecommendationResult(request, temperature, humidity, moisture, soi
     return render(request, 'fertilizer-prediction.html', context={
         'result': result
     })
+
+def CropDisease(request):
+    return render(request, 'crop-disease.html', {})
+
+def image_view(request):
+    if request.method == 'POST':
+        form = LeafDiseaseForm(request.POST, request.FILES)
+ 
+        if form.is_valid():
+            form.save()
+    else:
+        form = LeafDiseaseForm()
+
+    return render(request, 'hotel_image_form.html', {'form': form})
