@@ -14,6 +14,14 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Custom Functions
+# function to return key for any value
+def get_key(val, my_dict):
+    for key, value in my_dict.items():
+        if val == value:
+            return key
+ 
+    return "key doesn't exist"
+
 def weather_fetch(city_name):
     """
     Fetch and returns the temperature and humidity of a city
@@ -94,3 +102,26 @@ def CropRecommendationResult(request, nitrogen, phosphorus, potassium, ph, rainf
 
 def FertilizerRecommendation(request):
     return render(request, 'fertilizer-recommendation.html', {})
+
+def FertilizerRecommendationResult(request, temperature, humidity, moisture, soil, crop, nitrogen, potassium, phosphorus):
+    with open('app/Machine-learning/Models/Fertilizer-Recommendation/rf_pipeline.pkl', 'rb') as files:
+        model1 = pickle.load(files)
+
+    with open('app/Machine-learning/Models/Fertilizer-Recommendation/croptype_dict.pkl', 'rb') as files:
+        croptype = pickle.load(files)
+
+    with open('app/Machine-learning/Models/Fertilizer-Recommendation/fertname_dict.pkl', 'rb') as files:
+        fertilizername = pickle.load(files)
+
+    with open('app/Machine-learning/Models/Fertilizer-Recommendation/soiltype_dict.pkl', 'rb') as files:
+        soiltype = pickle.load(files)
+
+    Soil = get_key(soil, soiltype)
+    Crop = get_key(crop, croptype)
+
+    data = np.array([[float(temperature), float(humidity), float(moisture), Soil, Crop, float(nitrogen), float(potassium), float(phosphorus)]])
+    result = fertilizername[model1.predict(data)[0]]
+
+    return render(request, 'fertilizer-prediction.html', context={
+        'result': result
+    })

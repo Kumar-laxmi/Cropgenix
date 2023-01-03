@@ -92,8 +92,8 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
-              <h2>Crop Recommender</h2>
-              <p>Find which crop best suites your farm.</p>
+              <h2>Fertilizer Recommender</h2>
+              <p>Find which Fertilizer best suites your farm.</p>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@
         <div class="container">
           <ol>
             <li><a href="../">Home</a></li>
-            <li>Crop Recommender</li>
+            <li>Fertilizer Recommender</li>
           </ol>
         </div>
       </nav>
@@ -111,6 +111,77 @@
     <section class="sample-page">
       <div class="container" data-aos="fade-up">
           <form class="needs-validation" method="get" novalidate>
+              <!-- Temperature Input -->
+              <div class="form-row">
+                  <div class="mb-3">
+                      <label for="validationTemperature">Temperature: </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" id="validationTemperature" placeholder="Temperature" aria-describedby="inputGroupPrepend" min="0" required>
+                          <div class="invalid-feedback">Please enter Temperature value</div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Humidity Input -->
+              <div class="form-row">
+                  <div class="mb-3">
+                      <label for="validationHumidity">Humidity: </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" id="validationHumidity" placeholder="Humidity" aria-describedby="inputGroupPrepend" min="0" required>
+                          <div class="invalid-feedback">Please enter Humidity value</div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Moisture Input -->
+              <div class="form-row">
+                  <div class="mb-3">
+                      <label for="validationMoisture">Moisture: </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" id="validationMoisture" placeholder="Moisture" aria-describedby="inputGroupPrepend" min="0" required>
+                          <div class="invalid-feedback">Please enter Moisture value</div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Soil Type Input -->
+              <div class="form-row">
+                  <div class="mb-3">
+                      <label for="validationSoil">State: </label>
+                      <!--- India states -->
+                      <select class="form-select" aria-label="Default select example" id="soil" name="soil">
+                          <option selected>Select a soil type</option>
+                          <option value="Sandy">Sandy</option>
+                          <option value="Loamy">Loamy</option>
+                          <option value="Black">Black</option>
+                          <option value="Red">Red</option>
+                          <option value="Clayey">Clayey</option>
+                      </select>
+                  </div>
+              </div>
+
+              <!-- Crop Type Input -->
+              <div class="form-row">
+                  <div class="mb-3">
+                      <label for="validationCrop">City: </label>
+                      <!-- Corresponding cities -->
+                      <select class="form-select" aria-label="Default select example" id="crop" name="crop">
+                          <option selected>Open this select menu</option>
+                          <option value="Maize">Maize</option>
+                          <option value="Sugarcane">Sugarcane</option>
+                          <option value="Cotton">Cotton</option>
+                          <option value="Tobacco">Tobacco</option>
+                          <option value="Paddy">Paddy</option>
+                          <option value="Barley">Barley</option>
+                          <option value="Wheat">Wheat</option>
+                          <option value="Millets">Millets</option>
+                          <option value="Oil seeds">Oil seeds</option>
+                          <option value="Pulses">Pulses</option>
+                          <option value="Ground Nuts">Ground Nuts</option>
+                      </select>
+                  </div>
+              </div>
+
               <!-- Nitrogen Input -->
               <div class="form-row">
                   <div class="mb-3">
@@ -143,63 +214,6 @@
                       </div>
                   </div>
               </div>
-
-              <!-- pH Input -->
-              <div class="form-row">
-                  <div class="mb-3">
-                      <label for="validationPH">pH: </label>
-                      <div class="input-group">
-                          <input type="text" class="form-control" id="validationPH" placeholder="PH" aria-describedby="inputGroupPrepend" min="0" required>
-                          <div class="invalid-feedback">Please enter pH value</div>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- Rainfall Input -->
-              <div class="form-row">
-                  <div class="mb-3">
-                      <label for="validationRainfall">Rainfall (in mm): </label>
-                      <div class="input-group">
-                          <input type="text" class="form-control" id="validationRainfall" placeholder="Rainfall" aria-describedby="inputGroupPrepend" min="0" required>
-                          <div class="invalid-feedback">Please enter Rainfall(in mm) value</div>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- State Input -->
-              <div class="form-row">
-                  <div class="mb-3">
-                      <label for="validationState">State: </label>
-                      <!--- India states -->
-                      <select
-                            onchange="print_city('state', this.selectedIndex);"
-                            id="sts"
-                            name="stt"
-                            class="form-control"
-                            style="font-weight: bold; color: black;"
-                            required
-                      ></select>
-                  </div>
-              </div>
-
-              <!-- City Input -->
-              <div class="form-row">
-                  <div class="mb-3">
-                      <label for="validationCity">City: </label>
-                      <!-- Corresponding cities -->
-                      <select
-                            id="state"
-                            class="form-control"
-                            name="city"
-                            style="font-weight: bold; color: black;"
-                            required
-                      ></select>
-                  </div>
-              </div>
-
-              <script type="text/javascript">
-                print_state("sts");
-              </script>
               
               <!-- Submit Button -->
               <button class="btn btn-primary" type="reset" onclick="LoadURL()">Submit form</button>
@@ -209,16 +223,17 @@
                       var nitrogen = document.getElementById("validationNitrogen").value;
                       var phosphorus = document.getElementById("validationPhosphorus").value;
                       var potassium = document.getElementById("validationPotassium").value;
-                      var pH = document.getElementById("validationPH").value;
-                      var rainfall = document.getElementById("validationRainfall").value;
+                      var temperature = document.getElementById("validationTemperature").value;
+                      var humidity = document.getElementById("validationHumidity").value;
+                      var moisture = document.getElementById("validationMoisture").value;
 
-                      var state = document.querySelector('#sts').options[document.querySelector('#sts').selectedIndex].value;
-                      var city = document.querySelector('#state').options[document.querySelector('#state').selectedIndex].value.trim();
-                      console.log(state);
-                      console.log(city);
+                      var soil = document.querySelector('#soil').options[document.querySelector('#soil').selectedIndex].value;
+                      var crop = document.querySelector('#crop').options[document.querySelector('#crop').selectedIndex].value.trim();
+                      console.log(soil);
+                      console.log(crop);
 
                       var server = window.location.origin;
-                      var path = "/crop-prediction/" + nitrogen + "/" + phosphorus + "/" + potassium + "/" + pH + "/" + rainfall + "/" + state + "/" + city;
+                      var path = "/fertilizer-prediction/" + temperature + "/" + humidity + "/" + moisture + "/" + soil + "/" + crop + "/" + nitrogen + "/" + potassium + "/" + phosphorus;
                       var url = server + path;
                       window.location.href = url;
                   }

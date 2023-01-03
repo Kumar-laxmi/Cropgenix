@@ -23,5 +23,6 @@ urlpatterns = [
     path('', index),
     path('crop-recommendation/', CropRecommendation),
     path('crop-prediction/<str:nitrogen>/<str:phosphorus>/<str:potassium>/<str:ph>/<str:rainfall>/<str:state>/<str:city>/', CropRecommendationResult),
-    path('fertilizer-recommendation/', FertilizerRecommendation)
+    path('fertilizer-recommendation/', FertilizerRecommendation),
+    path('fertilizer-prediction/<str:temperature>/<str:humidity>/<str:moisture>/<str:soil>/<str:crop>/<str:nitrogen>/<str:potassium>/<str:phosphorus>/', FertilizerRecommendationResult)
 ]
